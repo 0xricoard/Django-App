@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estimasi Harga Mobil Bekas</title>
+</head>
+<body>
+    <h1>Estimasi Harga Mobil Bekas</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Estimasi Harga">
+    </form>
+    
+    {% if estimasi %}
+    <h2>Estimasi Harga:</h2>
+    <p> {{ estimasi }}</p>
+    
+    <p>atau jika dirupiahkan yaitu: Rp {{ estimasi_rupiah }} Juta</p>
+    {% endif %}
+</body>
+</html>
