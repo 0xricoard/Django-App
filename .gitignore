@@ -1,10 +1,20 @@
+# npm
+node_modules
+**/node_modules
+**/**/node_modules
+
 # env
-.env
 Env
 env
+**/env
+**/.env
+**/**/env
+**/**/.env
 
 # cache
-*.sqlite3
+*.sqllite
+*.sqllite3
+db.sqlite3
 __pycache__
 **/__pycache__
 **/**/__pycache__

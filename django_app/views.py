@@ -6,7 +6,12 @@ from .forms.mobil_form import MobilForm
 model = joblib.load('django_app/models/model_knn.pkl')
 
 def home(request):
-  return render(request, 'home.html')
+  context = {
+    'title': 'Estimasi | Estimasi Harga Mobil Bekas',
+    'params': '/'
+  }
+
+  return render(request, 'home.html', context)
 
 def estimasi_harga(request):
   estimasi = None
@@ -26,14 +31,17 @@ def estimasi_harga(request):
       estimasi = prediction[0]  # Ambil hasil prediksi pertama
 
       # Konversi estimasi ke Rupiah
-      estimasi_rupiah = estimasi * 19110 * 1e-6
+      to_idr = estimasi * 19110
+      estimasi_rupiah = '{:,.0f}'.format(to_idr)
   else:
     form = MobilForm()
 
   context = {
+    'title': 'Estimasi | Estimasi Harga Mobil Bekas',
     'form': form, 
     'estimasi': estimasi, 
-    'estimasi_rupiah': estimasi_rupiah
+    'estimasi_rupiah': estimasi_rupiah,
+    'params': '/estimate'
   }
 
   return render(request, 'estimasi_harga.html', context)

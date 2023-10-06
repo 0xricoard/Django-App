@@ -20,7 +20,7 @@ installed_libraries = subprocess.check_output([sys.executable, '-m', 'pip', 'fre
 installed_set = set(installed_libraries)
 not_installed = [lib for lib in required_libraries if lib not in installed_set]
 
-if len(not_installed) == 9:
+if len(not_installed) < len(required_libraries):
   installing_all_libraries()
   migrate()
 else:

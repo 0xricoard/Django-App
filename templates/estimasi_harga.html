@@ -1,29 +1,16 @@
-{% load static %}
+{% extends "partials/base.html" %} {% block body %}
+<div class="container" style="padding-top: 90px">
+  <h1>Estimasi Harga Mobil Bekas</h1>
 
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Estimasi Harga" />
+  </form>
 
-    <link rel="icon" href="{% static 'images/icon.png' %}" />
+  {% if estimasi %}
+  <h2>Estimasi Harga:</h2>
+  <p>{{ estimasi }}</p>
 
-    <title>Estimasi Harga Mobil Bekas</title>
-  </head>
-  <body>
-    <h1>Estimasi Harga Mobil Bekas</h1>
-    <form method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <input type="submit" value="Estimasi Harga" />
-    </form>
-
-    {% if estimasi %}
-    <h2>Estimasi Harga:</h2>
-    <p>{{ estimasi }}</p>
-
-    <p>atau jika dirupiahkan yaitu: Rp {{ estimasi_rupiah }} Juta</p>
-    {% endif %}
-  </body>
-</html>
+  <p>atau jika dirupiahkan yaitu: Rp {{ estimasi_rupiah }} Juta</p>
+</div>
+{% endif %} {% endblock %}

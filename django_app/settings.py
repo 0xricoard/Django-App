@@ -26,7 +26,7 @@ SECRET_KEY = 'e)l#-s2t0ww8r7omb21imcjc+y^u_2$w0k3zau2+8dy4u48cb#'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','sg-contabo.muhammadri.co']
-
+INTERNAL_IPS = ['127.0.0.1']
 
 # Application definition
 
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'tailwind',
+  'theme',
+  'django_browser_reload',
   'django_app',
 ]
 
@@ -48,9 +51,11 @@ MIDDLEWARE = [
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  "django_browser_reload.middleware.BrowserReloadMiddleware"
 ]
 
 ROOT_URLCONF = 'django_app.urls'
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
 
 TEMPLATES = [
   {
@@ -70,6 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_app.wsgi.application'
 
+TAILWIND_APP_NAME = 'theme'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
