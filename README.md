@@ -7,8 +7,12 @@
     - [1. Menyiapkan Virtual Environment](#1-menyiapkan-virtual-environment)
     - [2. Masuk Kedalam Virtual Environment](#2-masuk-kedalam-virtual-environment)
     - [3. Mengunduh Semua Library](#3-mengunduh-semua-library)
-    - [4. Menjalankan Server](#4-menjalankan-server)
-  - [Install Tailwind CSS](#install-tailwind-css)
+    - [4. Atur SECRET\_KEY](#4-atur-secret_key)
+      - [Generate key](#generate-key)
+      - [Output](#output)
+      - [Salin key ke .env](#salin-key-ke-env)
+    - [5. Menjalankan Server](#5-menjalankan-server)
+  - [Tailwind CSS](#tailwind-css)
     - [1. Atur lokasi NPM](#1-atur-lokasi-npm)
     - [2. Import ke html](#2-import-ke-html)
     - [3. Menjalankan compiler](#3-menjalankan-compiler)
@@ -40,13 +44,37 @@ source env/Scripts/activate
 py setup.py
 ```
 
-### 4. Menjalankan Server
+### 4. Atur SECRET_KEY
+
+#### Generate key
+
+```sh
+py setup.py key
+```
+
+#### Output
+```sh
+Your key: '\8"0_V,GNhw2<"y4n{LO5eQ,8^n-jf:cPN+A~'}oQ/_Ld}@RII'
+```
+
+#### Salin key ke .env
+
+Duplikasi file .env.example, ubah menjadi .env
+
+```env
+# salin ke file .env
+# dev | production
+NODE_ENV=dev
+SECRET_KEY='\8"0_V,GNhw2<"y4n{LO5eQ,8^n-jf:cPN+A~'}oQ/_Ld}@RII'
+```
+
+### 5. Menjalankan Server
 
 ```sh
 py manage.py runserver
 ```
 
-## Install Tailwind CSS
+## Tailwind CSS
 
 ### 1. Atur lokasi NPM
 ```py

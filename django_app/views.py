@@ -7,11 +7,19 @@ model = joblib.load('django_app/models/model_knn.pkl')
 
 def home(request):
   context = {
-    'title': 'Beranda - Solusi Tepat untuk Memperkirakan Harga Mobil Bekas | Estimasi Harga Mobil Bekas',
+    'title': 'Beranda - Solusi Tepat untuk Memperkirakan Harga Mobil Bekas - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',
     'params': '/'
   }
 
   return render(request, 'home.html', context)
+
+def handling_404(request):
+  context = {
+    'title': 'Halaman Tidak Ditemukan - 404 Error Not Found - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',
+    'params': '/404'
+  }
+
+  return render(request, '404.html', context)
 
 def estimasi_harga(request):
   estimasi = None
@@ -37,7 +45,7 @@ def estimasi_harga(request):
     form = MobilForm()
 
   context = {
-    'title': 'Estimasi | Estimasi Harga Mobil Bekas',
+    'title': 'Estimasi - Cari Harga yang Pas sesuai Spesifikasi Mobil Bekas tersebut',
     'form': form, 
     'estimasi': estimasi, 
     'estimasi_rupiah': estimasi_rupiah,

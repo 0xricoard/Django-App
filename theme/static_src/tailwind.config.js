@@ -52,6 +52,8 @@ module.exports = {
       neutral: {
         900: "#1A1A1A",
         700: "#313131",
+        300: "#ADADAD",
+        100: "#F2F2F2",
         50: "#FEFEFE",
       },
     },

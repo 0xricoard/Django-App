@@ -1,6 +1,6 @@
 {% load static %} 
 
-<div class="flex items-center justify-around w-full">
+<div class="flex justify-between w-full">
   <div class="flex items-center gap-4">
     <div class="py-3">
       <img src="{% static 'images/icon.png' %}" width="34" alt="logo" title="Beranda"/>
@@ -27,13 +27,13 @@
     </nav>
   </div>
 
-  <div class="flex items-center {% if params == '/' %}gap-5{% endif %}">
+  <div class="flex items-center {% if params != '/estimate' %}gap-5{% endif %}">
     <a href="https://github.com/0xricoard/Django-App" target="_blank">
       <button>
         <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="35px" height="35px"/>
       </button>
     </a>
-    {% if params == "/" or params == "/docs" %}
+    {% if params != "/estimate" %}
       <a href="/estimate">
         <button class="bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Coba Gratis</button>
       </a>
