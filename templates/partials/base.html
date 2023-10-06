@@ -29,9 +29,13 @@
 
     <title>{{ title }}</title>
   </head>
-  <body>
-    <header>{% include 'partials/header.html' %}</header>
+  <body class="font-inter text-neutral-900">
+    <header class="fixed top-0 left-0 w-full backdrop-blur-sm mt-4">
+      {% include 'partials/header.html' %}
+    </header>
     {% block body %}{% endblock %}
+    <footer class="mt-12 w-full py-8 px-6 lg:px-32 pb-12">
+      {% include 'partials/footer.html' %}
+    </footer>
   </body>
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </html>

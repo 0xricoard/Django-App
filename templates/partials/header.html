@@ -1,5 +1,42 @@
-<nav class="">
-  <ul>
-    <a href="/estimate">Estimasi Harga</a>
-  </ul>
-</nav>
+{% load static %} 
+
+<div class="flex items-center justify-around w-full">
+  <div class="flex items-center gap-4">
+    <div class="py-3">
+      <img src="{% static 'images/icon.png' %}" width="34" alt="logo" title="Beranda"/>
+    </div>
+
+    <nav class="">
+      <ul class="flex">
+        <li>
+          <a href="/">
+            <button class="nav {% if params == '/' %}active{% endif %}">Beranda</button>
+          </a>
+        </li>
+        <li>
+          <a href="/estimate">
+            <button class="nav {% if params == '/estimate' %}active{% endif %}">Estimasi Harga</button>
+          </a>
+        </li>
+        <li>
+          <a href="/docs">
+            <button class="nav {% if params == '/docs' %}active{% endif %}">Panduan</button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="flex items-center {% if params == '/' %}gap-5{% endif %}">
+    <a href="https://github.com/0xricoard/Django-App" target="_blank">
+      <button>
+        <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="35px" height="35px"/>
+      </button>
+    </a>
+    {% if params == "/" or params == "/docs" %}
+      <a href="/estimate">
+        <button class="bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Coba Gratis</button>
+      </a>
+    {% endif %}
+  </div>
+</div>

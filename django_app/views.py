@@ -7,7 +7,7 @@ model = joblib.load('django_app/models/model_knn.pkl')
 
 def home(request):
   context = {
-    'title': 'Estimasi | Estimasi Harga Mobil Bekas',
+    'title': 'Beranda - Solusi Tepat untuk Memperkirakan Harga Mobil Bekas | Estimasi Harga Mobil Bekas',
     'params': '/'
   }
 

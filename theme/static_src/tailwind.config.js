@@ -18,7 +18,8 @@ module.exports = {
      * Main templates directory of the project (BASE_DIR/templates).
      * Adjust the following line to match your project structure.
      */
-    "../../templates/**/*.html",
+    "../../templates/*.html",
+    "../../templates/partials/*.html",
 
     /*
      * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
@@ -43,7 +44,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      inter: ["Inter", sans - serif],
+      inter: ["Inter", "sans-serif"],
     },
     colors: {
       transparent: "transparent",

@@ -1,5 +1,28 @@
-{% extends "partials/base.html" %} {% block body %}
-<div class="container" style="padding-top: 90px">
-  <h1>Cari Tau untuk Menentukan Harga yang Pas dari Mobil Bekas</h1>
-</div>
+{% extends "partials/base.html" %} 
+{% load static %} 
+{% block body %}
+
+<main class="px-6 lg:px-32 pt-32 text-center flex flex-col items-center">
+  <article class="lg:w-[75%]">
+    <h1 class="text-neutral-900 font-bold text-5xl mb-4">
+      Cari Tau Harga Pas Mobil Bekas
+    </h1>
+    <p class="text-neutral-700">
+      Kamu tidak perlu memperkirakan harga mobil bekas yang hasilnya kurang tepat dan kurang
+      akurat. Dengan menggunakan alat ini dapat dengan mudah mendapatkan harga
+      yang tepat dan sesuai spesifikasi yang dimiliki mobil bekas tersebut.
+    </p>
+  </article>
+  <a href="/estimate">
+    <button
+      class="font-bold text-sm bg-red text-neutral-50 px-8 py-3 rounded-full mt-8"
+    >
+      Estimasikan Harga Mobil Bekas
+    </button>
+  </a>
+
+  <figure class="rounded-3xl mt-14 overflow-hidden h-[500px] flex justify-center items-center w-full">
+    <img src="{% static 'images/car-abandoned.webp' %}" alt="car abandoned"  class="w-full"/>
+  </figure>
+</main>
 {% endblock %}
