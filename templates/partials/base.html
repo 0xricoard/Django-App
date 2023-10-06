@@ -1,0 +1,41 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    {% tailwind_css %}
+    <link rel="icon" href="{% static 'images/icon.png' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+
+    <title>{{ title }} | Estimasi Harga Mobil Bekas</title>
+  </head>
+  <body class="font-inter text-neutral-900">
+    <header class="fixed top-0 left-0 px-6 lg:px-32 w-full backdrop-blur-sm mt-4">
+      {% include 'partials/header.html' %}
+    </header>
+    {% block body %}{% endblock %}
+    <footer class="mt-12 w-full py-8 px-6 lg:px-32 pb-12">
+      {% include 'partials/footer.html' %}
+    </footer>
+  </body>
+</html>
