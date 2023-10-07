@@ -41,7 +41,7 @@ class MobilForm(forms.Form):
         ('Hybrid', 'Hybrid'),
     ]
 
-     ENGINE_SIZE_CHOICES = [
+    ENGINE_SIZE_CHOICES = [
         (1.0, '1.0'),
         (1.1, '1.1'),
         (1.2, '1.2'),
