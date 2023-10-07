@@ -6,8 +6,8 @@
       <img src="{% static 'images/icon.png' %}" width="34" alt="logo" title="Beranda"/>
     </div>
 
-    <nav class="">
-      <ul class="flex">
+    <nav class="nav-mobile md:nav-desktop">
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-0">
         <li>
           <a href="/">
             <button class="nav {% if params == '/' %}active{% endif %}">Beranda</button>
@@ -23,13 +23,21 @@
             <button class="nav {% if params == '/docs' %}active{% endif %}">Panduan</button>
           </a>
         </li>
+        <li>
+          <a href="https://github.com/0xricoard/Django-App" target="_blank">
+            <button class="flex md:hidden nav justify-center gap-2 items-center">
+              <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="28px" height="28px"/>
+              <p>Source Code</p>
+            </button>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
 
   <div class="flex items-center {% if params != '/estimate' %}gap-5{% endif %}">
     <a href="https://github.com/0xricoard/Django-App" target="_blank">
-      <button>
+      <button class="hidden md:block">
         <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="35px" height="35px"/>
       </button>
     </a>

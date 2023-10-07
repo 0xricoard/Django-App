@@ -1,4 +1,13 @@
+![contributor](https://img.shields.io/github/contributors/0xricoard/Django-App?color=red) ![size](https://img.shields.io/github/repo-size/0xricoard/Django-App?color=red) ![py version](https://img.shields.io/badge/python-v_3.11.5-blue)
+![django version](https://img.shields.io/badge/django-v_4.2.5-green)
+![tailwind version](https://img.shields.io/badge/tailwind-v_3.6.0-blue)
+
+
 # Estimasi Harga Mobil Bekas
+
+Website ini digunakan untuk memperkirakan harga mobil bekas dari spesifikasi mobil yang telah disebutkan.
+
+Website ini dibuat dari bahasa [Python](https://www.python.org/) dengan pemanfaatan [Django](https://www.djangoproject.com/) untuk bisa dijalankan di website, juga menggunakan framework css yaitu [Django-Tailwind](https://django-tailwind.readthedocs.io/en/latest/index.html).
 
 ## Table of Content
 - [Estimasi Harga Mobil Bekas](#estimasi-harga-mobil-bekas)
@@ -12,11 +21,14 @@
       - [Output](#output)
       - [Salin key ke .env](#salin-key-ke-env)
     - [5. Menjalankan Server](#5-menjalankan-server)
-  - [Tailwind CSS](#tailwind-css)
-    - [1. Atur lokasi NPM](#1-atur-lokasi-npm)
-    - [2. Import ke html](#2-import-ke-html)
-    - [3. Menjalankan compiler](#3-menjalankan-compiler)
-    - [4. Production](#4-production)
+  - [Tailwind CSS (DEV)](#tailwind-css-dev)
+    - [1. Atur beberapa hal](#1-atur-beberapa-hal)
+      - [django\_app/settings.py](#django_appsettingspy)
+      - [django\_app/urls.py](#django_appurlspy)
+    - [2. Installing Tailwind](#2-installing-tailwind)
+    - [3. Import ke html](#3-import-ke-html)
+    - [4. Menjalankan compiler](#4-menjalankan-compiler)
+  - [Tailwind CSS (PRODUCTION)](#tailwind-css-production)
 
 ## Instalasi
 
@@ -25,6 +37,8 @@
 ```sh
 py -m venv env 
 ```
+
+[[Table of Content](#table-of-content)]
 
 ### 2. Masuk Kedalam Virtual Environment
 
@@ -37,12 +51,14 @@ Unix:
 ```sh
 source env/Scripts/activate
 ```
+[[Table of Content](#table-of-content)]
 
 ### 3. Mengunduh Semua Library
 
 ```sh
 py setup.py
 ```
+[[Table of Content](#table-of-content)]
 
 ### 4. Atur SECRET_KEY
 
@@ -53,6 +69,7 @@ py setup.py key
 ```
 
 #### Output
+
 ```sh
 Your key: '\8"0_V,GNhw2<"y4n{LO5eQ,8^n-jf:cPN+A~'}oQ/_Ld}@RII'
 ```
@@ -61,29 +78,72 @@ Your key: '\8"0_V,GNhw2<"y4n{LO5eQ,8^n-jf:cPN+A~'}oQ/_Ld}@RII'
 
 Duplikasi file .env.example, ubah menjadi .env
 
-```env
+```
 # salin ke file .env
 # dev | production
 NODE_ENV=dev
 SECRET_KEY='\8"0_V,GNhw2<"y4n{LO5eQ,8^n-jf:cPN+A~'}oQ/_Ld}@RII'
 ```
 
+[[Table of Content](#table-of-content)]
+
 ### 5. Menjalankan Server
 
 ```sh
-py manage.py runserver
+py setup.py -s
 ```
 
-## Tailwind CSS
+[[Table of Content](#table-of-content)]
 
-### 1. Atur lokasi NPM
+## Tailwind CSS (DEV)
+
+### 1. Atur beberapa hal
+
+#### django_app/settings.py
+
 ```py
 # django_app/settings.py
 
+# tailwind setup
+INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+TAILWIND_APP_NAME = 'theme'
+
+INSTALLED_APPS = [
+  ...,
+  'tailwind',
+  'theme',
+  'django_browser_reload',
+]
+
+MIDDLEWARE = [
+  ...,
+  "django_browser_reload.middleware.BrowserReloadMiddleware"
+]
 ```
 
-### 2. Import ke html
+#### django_app/urls.py
+
+```py
+# django_app/urls.py
+urlpatterns = [
+  ...,
+  path("__reload__/", include("django_browser_reload.urls")),
+]
+```
+
+[[Table of Content](#table-of-content)]
+
+### 2. Installing Tailwind
+
+```sh
+py setup.py -t --i
+```
+
+[[Table of Content](#table-of-content)]
+
+### 3. Import ke html
+
 ```html
 {% load static tailwind_tags %}
 
@@ -109,9 +169,14 @@ NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
 </html>
 ```
 
-### 3. Menjalankan compiler
+[[Table of Content](#table-of-content)]
+
+### 4. Menjalankan compiler
+
 ```sh
-python manage.py tailwind start
+python setup.py -t --r
 ```
 
-### 4. Production
+[[Table of Content](#table-of-content)]
+
+## Tailwind CSS (PRODUCTION)
