@@ -41,10 +41,29 @@ class MobilForm(forms.Form):
         ('Hybrid', 'Hybrid'),
     ]
 
+     ENGINE_SIZE_CHOICES = [
+        (1.0, '1.0'),
+        (1.1, '1.1'),
+        (1.2, '1.2'),
+        (1.3, '1.3'),
+        (1.4, '1.4'),
+        (1.5, '1.5'),
+        (1.6, '1.6'),
+        (1.7, '1.7'),
+        (1.8, '1.8'),
+        (1.9, '1.9'),
+        (2.0, '2.0'),
+        (2.1, '2.1'),
+        (2.2, '2.2'),
+        (2.3, '2.3'),
+        (2.4, '2.4'),
+        (2.5, '2.5'),
+    ]
+
     year = forms.ChoiceField(choices=YEAR_CHOICES)
     mileage = forms.IntegerField()
     tax = forms.IntegerField()
     mpg = forms.FloatField()
-    engineSize = forms.FloatField()
+    engineSize = forms.ChoiceField(choices=ENGINE_SIZE_CHOICES)
     transmission = forms.ChoiceField(choices=TRANSMISSION_CHOICES)
     fuelType = forms.ChoiceField(choices=FUEL_TYPE_CHOICES)
