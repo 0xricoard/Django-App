@@ -1,6 +1,7 @@
 from django import forms
 
 class MobilForm(forms.Form):
+    # Definisikan pilihan untuk variabel tahun, transmisi, dan tipe bahan bakar
     YEAR_CHOICES = [
         (2013, '2013'),
         (2014, '2014'),
@@ -26,9 +27,24 @@ class MobilForm(forms.Form):
     ]
 
     year = forms.ChoiceField(choices=YEAR_CHOICES)
-    mileage = forms.FloatField()
-    tax = forms.FloatField()
-    mpg = forms.FloatField()
-    engineSize = forms.FloatField()
+    mileage = forms.CharField()  # Gunakan CharField untuk memastikan input adalah string
+    tax = forms.CharField()
+    mpg = forms.CharField()
+    engineSize = forms.CharField()
     transmission = forms.ChoiceField(choices=TRANSMISSION_CHOICES)
     fuelType = forms.ChoiceField(choices=FUEL_TYPE_CHOICES)
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # Ubah variabel-variabel tertentu ke tipe data float
+        try:
+            cleaned_data['mileage'] = float(cleaned_data['mileage'])
+            cleaned_data['tax'] = float(cleaned_data['tax'])
+            cleaned_data['mpg'] = float(cleaned_data['mpg'])
+            cleaned_data['engineSize'] = float(cleaned_data['engineSize'])
+        except ValueError:
+            # Tangani kesalahan jika nilai tidak dapat diubah menjadi float
+            raise forms.ValidationError("Masukkan angka yang valid.")
+
+        return cleaned_data
