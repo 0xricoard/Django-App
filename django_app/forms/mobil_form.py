@@ -32,6 +32,7 @@ class MobilForm(forms.Form):
         ('Manual', 'Manual'),
         ('Automatic', 'Automatic'),
         ('Semi-Auto', 'Semi-Auto'),
+        ('Other', 'Other'),
     ]
 
     FUEL_TYPE_CHOICES = [
@@ -39,6 +40,7 @@ class MobilForm(forms.Form):
         ('Diesel', 'Diesel'),
         ('Electric', 'Electric'),
         ('Hybrid', 'Hybrid'),
+        ('Other', 'Other'),
     ]
 
     ENGINE_SIZE_CHOICES = [
