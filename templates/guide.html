@@ -2,7 +2,7 @@
 {% load static %} 
 
 {% block body %}
-<main class="px-6 lg:px-32 pt-32 text-start md:text-center flex flex-col-reverse md:flex-col items-center">
+<main class="px-6 lg:px-32 pt-24 text-start md:text-center flex flex-col-reverse md:flex-col items-center">
   <div class="lg:w-[75%]">
     <h1 class="text-neutral-900 font-bold text-5xl mb-4">
       Panduan
@@ -45,4 +45,21 @@
 {% include 'partials/guide/ukuran_mesin.html' %}
 {% include 'partials/guide/transmisi.html' %}
 {% include 'partials/guide/jenis_bahan_bakar.html' %}
+
+<a href="/docs/#" id="btn-up" class="flex justify-center items-center w-[40px] h-[40px] fixed bottom-6 right-6 rounded-full bg-neutral-900 hover:bg-neutral-300">
+  <img src="{% static 'images/arrow-up.svg' %}" alt="">
+</a>
+
+<script>
+  const btn = document.querySelector('#btn-up');
+
+  window.onscroll = function () {
+    if (window.pageYOffset > 0) {
+      btn.classList.remove('hidden')
+    } else {
+      btn.classList.add('hidden')
+    }
+}
+</script>
+
 {% endblock %}
