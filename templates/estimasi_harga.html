@@ -1,9 +1,9 @@
 {% extends "partials/base.html" %} 
+{% load widget_tweaks %}
 
 {% block body %}
-
 <section class="px-6 lg:px-32 pt-32 text-neutral-900" id="#result">
-  <div class="bg-neutral-100 py-5 rounded-lg px-6 flex flex-col md:flex-row justify-between items-center">
+  <div class="bg-neutral-100 py-5 rounded-[1rem] md:rounded-[2rem] px-6 flex flex-col md:flex-row justify-between items-center">
     <h1 class="font-bold text-xl flex flex-row md:flex-col gap-2 flex-wrap">
       <span>Hasil</span>
       <span>Estimasi</span>
@@ -18,12 +18,51 @@
 
 <main class="mt-5 px-6 lg:px-32">
   <form method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    
+    <div class="flex w-full justify-center items-center gap-8">
+      <div class="w-full">
+        <label>Tahun</label>
+        {% render_field form.year class+="input-style" %}
+      </div>
+
+      <div class="w-full">
+        <label>Pajak</label>
+        {% render_field form.tax class+="input-style" value="0"%}
+      </div>
+    </div>
+
+    <div class="w-full">
+      <label>Jarak Tempuh (mil)</label>
+      {% render_field form.mileage class+="input-style" value="0"%}
+    </div>
+
+
+    <div class="flex w-full justify-center items-center gap-8">
+      <div class="w-full">
+        <label>Ukuran Mesin</label>
+        {% render_field form.engineSize class+="input-style" value="0"%}
+      </div>
+
+      <div class="w-full">
+        <label>MPG</label>
+        {% render_field form.mpg class+="input-style" value="0"%}
+      </div>
+    </div>
+
+    <div>
+      <label>Transmisi</label>
+      {% render_field form.transmission class+="input-style" value="0"%}
+    </div>
+
+    <div>
+      <label>Jenis Bahan Bakar</label>
+      {% render_field form.fuelType class+="input-style" value="0"%}
+    </div>
 
     <a href="#result" class="cursor-pointer">
-      <input type="submit" value="Estimasi Harga" class="w-full bg-red py-3 font-bold text-neutral-50 rounded-full text-sm mt-10 cursor-pointer"/>
+      <input type="submit" value="Estimasi Harga" class="w-full bg-red hover:opacity-80 py-3 font-bold text-neutral-50 rounded-full text-sm mt-10 cursor-pointer"/>
     </a>
   </form>
 </main>
-  
 {% endblock %}

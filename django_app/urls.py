@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
   path('', views.home),
   path('estimate/', views.estimasi_harga),
+  path('docs/', views.guide),
   path("__reload__/", include("django_browser_reload.urls")),
 ]

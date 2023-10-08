@@ -11,6 +11,13 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+def guide(request):
+    context = {
+      'title': 'Panduan - Baca Panduan Agar Tidak Bingung Saat Menggunakannya - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',
+      'params': '/docs'  
+    }
+    return render(request, 'guide.html', context)
+
 def handling_404(request):
     context = {
         'title': 'Halaman Tidak Ditemukan - 404 Error Not Found - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',

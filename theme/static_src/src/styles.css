@@ -12,6 +12,9 @@
   select, input {
     @apply w-full outline-none mt-2;
   }
+  .input-style {
+    @apply rounded-lg px-6 bg-neutral-100 border-2 border-neutral-300 focus:bg-neutral-50 focus:border-red outline-none w-full;
+  }
   .nav-mobile {
     @apply absolute left-0 px-6 top-[3rem] w-full py-4 bg-neutral-50;
   }
