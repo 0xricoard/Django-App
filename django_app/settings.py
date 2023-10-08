@@ -28,7 +28,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True if os.getenv('NODE_ENV') != 'production' else False
 
 ALLOWED_HOSTS = ['127.0.0.1','sg-contabo.muhammadri.co']
+
+# tailwind setup
 INTERNAL_IPS = ['127.0.0.1']
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+TAILWIND_APP_NAME = 'theme'
 
 # Application definition
 
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'widget_tweaks',
   'tailwind',
   'theme',
   'django_browser_reload',
@@ -57,7 +62,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_app.urls'
-NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
 
 TEMPLATES = [
   {
@@ -77,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_app.wsgi.application'
 
-TAILWIND_APP_NAME = 'theme'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

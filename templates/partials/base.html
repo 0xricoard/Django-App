@@ -30,7 +30,7 @@
     <title>{{ title }} | Estimasi Harga Mobil Bekas</title>
   </head>
   <body class="font-inter text-neutral-900">
-    <header class="fixed top-0 left-0 px-6 lg:px-32 w-full backdrop-blur-sm mt-4">
+    <header class="fixed top-0 left-0 px-6 lg:px-32 w-full bg-neutral-50 md:bg-transparent md:backdrop-blur-sm mt-0 md:mt-4">
       {% include 'partials/header.html' %}
     </header>
     {% block body %}{% endblock %}
@@ -38,4 +38,8 @@
       {% include 'partials/footer.html' %}
     </footer>
   </body>
+
+  <script>
+    const header = document.querySelector('.nav-links'); let condition = false; const toggleNavbar = () => { if (condition) { header.classList.toggle('translate-x-[-100%]', false); condition = true; } else { header.classList.toggle('translate-x-[-100%]'); condition = false; } }
+  </script>
 </html>

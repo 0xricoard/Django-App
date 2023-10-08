@@ -11,6 +11,13 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+def guide(request):
+    context = {
+      'title': 'Panduan - Baca Panduan Agar Tidak Bingung Saat Menggunakannya - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',
+      'params': '/docs'  
+    }
+    return render(request, 'guide.html', context)
+
 def handling_404(request):
     context = {
         'title': 'Halaman Tidak Ditemukan - 404 Error Not Found - Cari Harga yang Pas untuk Spesifikasi Mobil Bekas',
@@ -24,16 +31,19 @@ def estimasi_harga(request):
 
     if request.method == 'POST':
         form = MobilForm(request.POST)
+        pounds = 19097
 
         if form.is_valid():
             user_input = form.cleaned_data
+            tax = int(user_input['tax'])
+            tax_convert = float("{:.2f}".format(tax / pounds))
 
             # Ubah variabel-variabel ke tipe data numerik
             spesifikasi_mobil_bekas = [
                 [
                     int(user_input['year']), 
                     int(user_input['mileage']), 
-                    int(user_input['tax']),
+                    tax_convert,
                     float(user_input['mpg']), 
                     float(user_input['engineSize'])
                 ]
@@ -43,7 +53,7 @@ def estimasi_harga(request):
             estimasi = prediction[0]  # Ambil hasil prediksi pertama
 
             # Konversi estimasi ke Rupiah
-            to_idr = estimasi * 19110
+            to_idr = estimasi * pounds
             estimasi_rupiah = '{:,.0f}'.format(to_idr)
     else:
         form = MobilForm()

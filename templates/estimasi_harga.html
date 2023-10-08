@@ -1,27 +1,69 @@
 {% extends "partials/base.html" %} 
+{% load static %}
+{% load widget_tweaks %}
 
 {% block body %}
-<div class="container" style="padding-top: 90px">
-  <h1>Estimasi Harga Mobil Bekas</h1>
+<section class="px-6 lg:px-32 pt-24 text-neutral-900" id="#result">
+  <div class="bg-neutral-100 py-5 rounded-[1rem] md:rounded-[2rem] px-6 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="font-bold text-xl flex flex-row md:flex-col gap-2 flex-wrap">
+      <span>Hasil</span>
+      <span>Estimasi</span>
+    </h1>
 
+    <div class="text-center md:text-end mt-5 md:mt-0">
+      <h3>£ {% if estimasi %}{{ estimasi }}{% else %}00.00{% endif %} </h3>
+      <h2 class="text-red font-bold">Rp <span class="text-4xl">{% if estimasi %}{{ estimasi_rupiah }}{% else %}000,000{% endif %}</span></h2>
+    </div>
+  </div>
+</section>
+
+<main class="mt-5 px-6 lg:px-32">
   <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="submit" value="Estimasi Harga" />
-  </form>
-
-</div>
-
-  {% if estimasi %}
-    <section class="px-6 lg:px-32 text-neutral-900">
-      <div class="bg-neutral-100 py-5 rounded-lg px-6 flex justify-between items-center">
-        <h1 class="font-bold text-xl">Hasil <br /> Estimasi</h1>
-
-        <div class="text-end">
-          <h3>£ {{ estimasi }}</h3>
-          <h2 class="text-red font-bold">Rp <span class="text-4xl">{{ estimasi_rupiah }}</span></h2>
-        </div>
+    {% csrf_token %}
+    
+    <div class="flex w-full justify-center items-center gap-8">
+      <div class="w-full">
+        <label for="year">Tahun Produksi</label>
+        {% render_field form.year class+="input-style" id="year" %}
       </div>
-    </section>
-  {% endif %} 
-  
+
+      <div class="w-full">
+        <label for="tax">Pajak (rupiah)</label>
+        {% render_field form.tax class+="input-style" placeholder="ex: 1000000" id="tax" %}
+      </div>
+    </div>
+
+    <div class="w-full">
+      <label for="mileage">Jarak Tempuh (mil)</label>
+      {% render_field form.mileage class+="input-style" value="0" id="mileage" %}
+    </div>
+
+
+    <div class="flex w-full justify-center items-center gap-8">
+      <div class="w-full">
+        <label for="engine">Ukuran Mesin</label>
+        {% render_field form.engineSize class+="input-style" value="0" id="engine" %}
+      </div>
+
+      <div class="w-full">
+        <label for="mpg">MPG</label>
+        {% render_field form.mpg class+="input-style" value="0" id="mpg" %}
+      </div>
+    </div>
+
+    <div>
+      <label for="trans">Transmisi</label>
+      {% render_field form.transmission class+="input-style" value="0" id="trans" %}
+    </div>
+
+    <div>
+      <label for="type">Jenis Bahan Bakar</label>
+      {% render_field form.fuelType class+="input-style" value="0" id="type" %}
+    </div>
+
+    <a href="#result" class="cursor-pointer">
+      <input type="submit" value="Estimasi Harga" class="w-full bg-red hover:opacity-80 py-3 font-bold text-neutral-50 rounded-full text-sm mt-10 cursor-pointer"/>
+    </a>
+  </form>
+</main>
 {% endblock %}

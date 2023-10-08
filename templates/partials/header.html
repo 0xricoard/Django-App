@@ -2,12 +2,14 @@
 
 <div class="flex justify-between w-full">
   <div class="flex items-center gap-4">
-    <div class="py-3">
-      <img src="{% static 'images/icon.png' %}" width="34" alt="logo" title="Beranda"/>
-    </div>
+    <a href="/">
+      <div class="py-3">
+        <img src="{% static 'images/icon.png' %}" width="34" alt="logo" title="Beranda"/>
+      </div>
+    </a>
 
-    <nav class="">
-      <ul class="flex">
+    <nav class="nav-mobile md:nav-desktop md:translate-x-0 translate-x-[-100%] nav-links transition duration-500">
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-0 pt-4 md:p-0">
         <li>
           <a href="/">
             <button class="nav {% if params == '/' %}active{% endif %}">Beranda</button>
@@ -23,13 +25,21 @@
             <button class="nav {% if params == '/docs' %}active{% endif %}">Panduan</button>
           </a>
         </li>
+        <li>
+          <a href="https://github.com/0xricoard/Django-App" target="_blank">
+            <button class="flex md:hidden nav justify-center gap-2 items-center">
+              <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="28px" height="28px"/>
+              <p>Source Code</p>
+            </button>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
 
   <div class="flex items-center {% if params != '/estimate' %}gap-5{% endif %}">
     <a href="https://github.com/0xricoard/Django-App" target="_blank">
-      <button>
+      <button class="hidden md:block">
         <img src="{% static 'images/github.svg' %}" alt="github logo" title="goto repo github" width="35px" height="35px"/>
       </button>
     </a>
@@ -38,5 +48,9 @@
         <button class="bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Coba Gratis</button>
       </a>
     {% endif %}
+
+    <button class="block md:hidden" onclick="toggleNavbar()">
+        <img src="{% static 'images/menu.svg' %}" alt="github logo" title="menu" width="35px" height="35px"/>
+      </button>
   </div>
 </div>

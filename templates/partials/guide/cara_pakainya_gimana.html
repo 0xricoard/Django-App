@@ -1,0 +1,12 @@
+{% load static %}
+
+<article id="cara-pakainya-gimana">
+  <h1 class="guide-h1">Cara Pakainya Gimana?</h1>
+  <p class="guide-p ps-2">Cukup klik tombol <a href="/estimate"><button class="hover:opacity-80 bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Coba Gratis</button></a> atau klik tombol <a href="/estimate"><button class="hover:opacity-80 bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Estimasikan Harga Mobil Bekas</button></a> pada saat di halaman beranda tadi. Bisa juga untuk  menekan tombol atau klik tombol <a href="/estimate"><button class="hover:opacity-80 bg-neutral-100 py-2 px-4 text-sm font-bold text-neutral-900 rounded-full">Estimasi Harga</button></a> di bagian atas. Setelah menekan salah satu tombol maka akan tampil halaman sebagai berikut.</p>
+
+  <img src="{% static 'images/estimate-page.png' %}" alt="page estimate" class="w-full mt-4">
+  <p class="guide-p ps-2 mt-4">Isilah dengan benar sesuai label yang telah ditentukan. Setelah sudah terisi semua tekan tombol </a> atau klik tombol <a href="/estimate"><button class="hover:opacity-80 bg-red py-2 px-4 text-sm font-bold text-neutral-50 rounded-full">Hitung Estimasi Harga</button></a> maka hasilnya akan tampil di bagian atas seperti ini.</p>
+  <img src="{% static 'images/result.png' %}" alt="page estimate" class="w-full mt-4">
+
+  {% include 'partials/guide/button.html' %}
+</article>
