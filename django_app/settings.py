@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('NODE_ENV') != 'production' else False
 
-ALLOWED_HOSTS = ['127.0.0.1','sg-contabo.muhammadri.co']
+ALLOWED_HOSTS = ['127.0.0.1','sg-contabo.muhammadri.co','django.0xricoard.dev']
 CSRF_TRUSTED_ORIGINS = ["https://django.0xricoard.dev"] 
 CSRF_ALLOWED_ORIGINS = ["https://django.0xricoard.dev"] # Application definition
 CORS_ORIGINS_WHITELIST = ["https://django.0xricoard.dev"]
