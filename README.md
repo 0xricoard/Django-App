@@ -28,7 +28,7 @@ Website ini dibuat dari bahasa [Python](https://www.python.org/) dengan pemanfaa
     - [2. Installing Tailwind](#2-installing-tailwind)
     - [3. Import ke html](#3-import-ke-html)
     - [4. Menjalankan compiler](#4-menjalankan-compiler)
-  - [Tailwind CSS (PRODUCTION)](#tailwind-css-production)
+  - [Production](#production)
 
 ## Instalasi
 
@@ -179,4 +179,4 @@ python setup.py -t --r
 
 [[Table of Content](#table-of-content)]
 
-## Tailwind CSS (PRODUCTION)
+## Production

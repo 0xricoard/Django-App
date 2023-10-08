@@ -46,20 +46,12 @@
 {% include 'partials/guide/transmisi.html' %}
 {% include 'partials/guide/jenis_bahan_bakar.html' %}
 
-<a href="/docs/#" id="btn-up" class="flex justify-center items-center w-[40px] h-[40px] fixed bottom-6 right-6 rounded-full bg-neutral-900 hover:bg-neutral-300">
+<a href="/docs/#" id="btn-up" class="flex justify-center items-center w-[40px] h-[40px] fixed bottom-6 right-6 rounded-full bg-neutral-900 hover:bg-neutral-300 z-20">
   <img src="{% static 'images/arrow-up.svg' %}" alt="">
 </a>
 
 <script>
-  const btn = document.querySelector('#btn-up');
-
-  window.onscroll = function () {
-    if (window.pageYOffset > 0) {
-      btn.classList.remove('hidden')
-    } else {
-      btn.classList.add('hidden')
-    }
-}
+  const btn = document.querySelector('#btn-up'); window.onscroll = function () {if (window.pageYOffset > 0) { btn.classList.remove('hidden') } else { btn.classList.add('hidden') }}
 </script>
 
 {% endblock %}
