@@ -28,7 +28,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True if os.getenv('NODE_ENV') != 'production' else False
 
 ALLOWED_HOSTS = ['127.0.0.1','sg-contabo.muhammadri.co']
-
+CSRF_TRUSTED_ORIGINS = ["https://django.0xricoard.dev"] 
+CSRF_ALLOWED_ORIGINS = ["https://django.0xricoard.dev"] # Application definition
+CORS_ORIGINS_WHITELIST = ["https://django.0xricoard.dev"]
 # tailwind setup
 INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
