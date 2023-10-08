@@ -27,4 +27,27 @@
   .active {
     @apply bg-neutral-900 text-neutral-50 font-bold hover:bg-neutral-900;
   }
+  .guide-list {
+    @apply underline text-neutral-700 hover:text-red;
+  }
+  .guide-h1 {
+    @apply font-bold text-2xl;
+  }
+  .guide-h2 {
+    @apply guide-h1 text-lg;
+  }
+  .guide-p {
+    @apply text-neutral-700 block mt-1;
+  }
+  .link-href {
+    @apply underline text-red hover:opacity-80 font-normal;
+  }
+
+  .guide-ul {
+    @apply mt-2 ps-2 flex flex-col gap-3;
+  }
+
+  article {
+    @apply px-6 lg:px-32 pt-20;
+  }
 }

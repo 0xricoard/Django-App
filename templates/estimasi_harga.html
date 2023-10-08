@@ -1,4 +1,5 @@
 {% extends "partials/base.html" %} 
+{% load static %}
 {% load widget_tweaks %}
 
 {% block body %}
@@ -22,42 +23,42 @@
     
     <div class="flex w-full justify-center items-center gap-8">
       <div class="w-full">
-        <label>Tahun</label>
-        {% render_field form.year class+="input-style" %}
+        <label for="year">Tahun Produksi</label>
+        {% render_field form.year class+="input-style" id="year" %}
       </div>
 
       <div class="w-full">
-        <label>Pajak</label>
-        {% render_field form.tax class+="input-style" value="0"%}
+        <label for="tax">Pajak</label>
+        {% render_field form.tax class+="input-style" value="0" id="tax" %}
       </div>
     </div>
 
     <div class="w-full">
-      <label>Jarak Tempuh (mil)</label>
-      {% render_field form.mileage class+="input-style" value="0"%}
+      <label for="mileage">Jarak Tempuh (mil)</label>
+      {% render_field form.mileage class+="input-style" value="0" id="mileage" %}
     </div>
 
 
     <div class="flex w-full justify-center items-center gap-8">
       <div class="w-full">
-        <label>Ukuran Mesin</label>
-        {% render_field form.engineSize class+="input-style" value="0"%}
+        <label for="engine">Ukuran Mesin</label>
+        {% render_field form.engineSize class+="input-style" value="0" id="engine" %}
       </div>
 
       <div class="w-full">
-        <label>MPG</label>
-        {% render_field form.mpg class+="input-style" value="0"%}
+        <label for="mpg">MPG</label>
+        {% render_field form.mpg class+="input-style" value="0" id="mpg" %}
       </div>
     </div>
 
     <div>
-      <label>Transmisi</label>
-      {% render_field form.transmission class+="input-style" value="0"%}
+      <label for="trans">Transmisi</label>
+      {% render_field form.transmission class+="input-style" value="0" id="trans" %}
     </div>
 
     <div>
-      <label>Jenis Bahan Bakar</label>
-      {% render_field form.fuelType class+="input-style" value="0"%}
+      <label for="type">Jenis Bahan Bakar</label>
+      {% render_field form.fuelType class+="input-style" value="0" id="type" %}
     </div>
 
     <a href="#result" class="cursor-pointer">

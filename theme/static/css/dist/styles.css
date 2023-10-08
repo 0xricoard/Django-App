@@ -844,6 +844,69 @@ select, input {
   background-color: rgb(26 26 26 / var(--tw-bg-opacity));
 }
 
+.guide-list {
+  --tw-text-opacity: 1;
+  color: rgb(49 49 49 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.guide-list:hover {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.guide-h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.guide-h2 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.guide-p {
+  margin-top: 0.25rem;
+  display: block;
+  --tw-text-opacity: 1;
+  color: rgb(49 49 49 / var(--tw-text-opacity));
+}
+
+.link-href {
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.link-href:hover {
+  opacity: 0.8;
+}
+
+.guide-ul {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  -webkit-padding-start: 0.5rem;
+          padding-inline-start: 0.5rem;
+}
+
+article {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+}
+
+@media (min-width: 1024px) {
+  article {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -986,6 +1049,10 @@ select, input {
   cursor: pointer;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -1046,33 +1113,16 @@ select, input {
   border-radius: 1.5rem;
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .rounded-\[1rem\] {
   border-radius: 1rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .border {
   border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
-}
-
-.border-neutral-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(173 173 173 / var(--tw-border-opacity));
 }
 
 .bg-neutral-100 {
@@ -1127,6 +1177,20 @@ select, input {
 
 .pb-12 {
   padding-bottom: 3rem;
+}
+
+.ps-10 {
+  -webkit-padding-start: 2.5rem;
+          padding-inline-start: 2.5rem;
+}
+
+.ps-2 {
+  -webkit-padding-start: 0.5rem;
+          padding-inline-start: 0.5rem;
+}
+
+.pt-24 {
+  padding-top: 6rem;
 }
 
 .pt-32 {
@@ -1257,10 +1321,6 @@ select, input {
 
 .hover\:opacity-70:hover {
   opacity: 0.7;
-}
-
-.hover\:opacity-90:hover {
-  opacity: 0.9;
 }
 
 .hover\:opacity-80:hover {
