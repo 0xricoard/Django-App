@@ -2,12 +2,13 @@
 ![django version](https://img.shields.io/badge/django-v_4.2.5-green)
 ![tailwind version](https://img.shields.io/badge/tailwind-v_3.6.0-blue)
 
-
 # Estimasi Harga Mobil Bekas
 
 Website ini digunakan untuk memperkirakan harga mobil bekas dari spesifikasi mobil yang telah disebutkan.
 
 Website ini dibuat dari bahasa [Python](https://www.python.org/) dengan pemanfaatan [Django](https://www.djangoproject.com/) untuk bisa dijalankan di website, juga menggunakan framework css yaitu [Django-Tailwind](https://django-tailwind.readthedocs.io/en/latest/index.html).
+
+[![Google Drive](https://img.shields.io/badge/Modul-02AFDC?style=for-the-badge&logo=googledrive&logoColor=white)](https://docs.google.com/document/d/1K6O9gna-zUX_6Mqp8JT0o6OzKfue7yogQj-rNTQpcYs/edit?usp=sharing) [![Google Chrome](https://img.shields.io/badge/Live%20Demo-dc2f02?style=for-the-badge&logo=GoogleChrome&logoColor=white)](https://django.0xricoard.dev/)
 
 ## Table of Content
 - [Estimasi Harga Mobil Bekas](#estimasi-harga-mobil-bekas)
