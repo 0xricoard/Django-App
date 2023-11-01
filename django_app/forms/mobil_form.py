@@ -38,7 +38,6 @@ class MobilForm(forms.Form):
     FUEL_TYPE_CHOICES = [
         ('Petrol', 'Petrol'),
         ('Diesel', 'Diesel'),
-        ('Electric', 'Electric'),
         ('Hybrid', 'Hybrid'),
         ('Other', 'Other'),
     ]
