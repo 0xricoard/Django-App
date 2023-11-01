@@ -28,14 +28,14 @@
       </div>
 
       <div class="w-full">
-        <label for="tax">Pajak (rupiah)</label>
-        {% render_field form.tax class+="input-style" placeholder="ex: 1000000" id="tax" %}
+        <label for="mileage">Jarak Tempuh (mil)</label>
+        {% render_field form.mileage class+="input-style" placeholder="00000" id="mileage" %}
       </div>
     </div>
-
+    
     <div class="w-full">
-      <label for="mileage">Jarak Tempuh (mil)</label>
-      {% render_field form.mileage class+="input-style" placeholder="ex: 00000" id="mileage" %}
+      <label for="tax">Pajak (rupiah)</label>
+      {% render_field form.tax class+="input-style" placeholder="1000000" id="tax" %}
     </div>
 
 
@@ -47,7 +47,7 @@
 
       <div class="w-full">
         <label for="mpg">MPG</label>
-        {% render_field form.mpg class+="input-style" placeholder="ex: 00.0" id="mpg" %}
+        {% render_field form.mpg class+="input-style" placeholder="00.0" id="mpg" %}
       </div>
     </div>
 
