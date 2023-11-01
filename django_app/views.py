@@ -1,6 +1,7 @@
 import joblib
 from django.shortcuts import render
 from .forms.mobil_form import MobilForm
+from .utils import convert_currency as currency
 
 model = joblib.load('django_app/models/model_knn.pkl')
 
@@ -26,43 +27,35 @@ def handling_404(request):
     return render(request, '404.html', context)
 
 def estimasi_harga(request):
-    estimasi = None
-    estimasi_rupiah = None
+    result = None
 
     if request.method == 'POST':
         form = MobilForm(request.POST)
-        pounds = 19097
 
         if form.is_valid():
             user_input = form.cleaned_data
-            tax = int(user_input['tax'])
-            tax_convert = float("{:.2f}".format(tax / pounds))
 
             # Ubah variabel-variabel ke tipe data numerik
             spesifikasi_mobil_bekas = [
                 [
                     int(user_input['year']), 
                     int(user_input['mileage']), 
-                    tax_convert,
+                    float(currency.convert_idr_to_gpb(int(user_input['tax']))),
                     float(user_input['mpg']), 
                     float(user_input['engineSize'])
                 ]
             ]
 
             prediction = model.predict(spesifikasi_mobil_bekas)
-            estimasi = prediction[0]  # Ambil hasil prediksi pertama
-
-            # Konversi estimasi ke Rupiah
-            to_idr = estimasi * pounds
-            estimasi_rupiah = '{:,.0f}'.format(to_idr)
+            result = prediction[0]  # Ambil hasil prediksi pertama
     else:
         form = MobilForm()
 
     context = {
         'title': 'Estimasi - Cari Harga yang Pas sesuai Spesifikasi Mobil Bekas tersebut',
         'form': form, 
-        'estimasi': estimasi, 
-        'estimasi_rupiah': estimasi_rupiah,
+        'estimasi': result, 
+        'estimasi_rupiah': currency.convert_gbp_to_idr(result),
         'params': '/estimate'
     }
     return render(request, 'estimasi_harga.html', context)

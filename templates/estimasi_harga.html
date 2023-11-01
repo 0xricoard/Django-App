@@ -35,30 +35,30 @@
 
     <div class="w-full">
       <label for="mileage">Jarak Tempuh (mil)</label>
-      {% render_field form.mileage class+="input-style" value="0" id="mileage" %}
+      {% render_field form.mileage class+="input-style" placeholder="ex: 00000" id="mileage" %}
     </div>
 
 
     <div class="flex w-full justify-center items-center gap-8">
       <div class="w-full">
         <label for="engine">Ukuran Mesin</label>
-        {% render_field form.engineSize class+="input-style" value="0" id="engine" %}
+        {% render_field form.engineSize class+="input-style" id="engine" %}
       </div>
 
       <div class="w-full">
         <label for="mpg">MPG</label>
-        {% render_field form.mpg class+="input-style" value="0" id="mpg" %}
+        {% render_field form.mpg class+="input-style" placeholder="ex: 00.0" id="mpg" %}
       </div>
     </div>
 
     <div>
       <label for="trans">Transmisi</label>
-      {% render_field form.transmission class+="input-style" value="0" id="trans" %}
+      {% render_field form.transmission class+="input-style" id="trans" %}
     </div>
 
     <div>
       <label for="type">Jenis Bahan Bakar</label>
-      {% render_field form.fuelType class+="input-style" value="0" id="type" %}
+      {% render_field form.fuelType class+="input-style" id="type" %}
     </div>
 
     <a href="#result" class="cursor-pointer">
