@@ -1,4 +1,4 @@
-def transmission_binarizer(input):
+def transmission(input):
   if (input == "Automatic"):
     return [1, 0, 0]
   elif (input == "Manual"):
@@ -6,7 +6,7 @@ def transmission_binarizer(input):
   else:
     return [0, 0, 1]
   
-def fueltype_binarizer(input):
+def fueltype(input):
   if (input == "Diesel"):
     return [1, 0, 0]
   elif (input == "Hybrid"):

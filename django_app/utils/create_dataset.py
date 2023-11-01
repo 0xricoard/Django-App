@@ -3,7 +3,7 @@ def car_dataset(year, mileage, tax, mpg, enginesize, transmission, fueltype):
     float(year),
     float(mileage),
     float(tax),
-    float(mpg),
+    mpg,
     float(enginesize),
     float(transmission[0]),
     float(transmission[1]),

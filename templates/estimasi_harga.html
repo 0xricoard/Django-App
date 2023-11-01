@@ -17,6 +17,38 @@
   </div>
 </section>
 
+<section class="px-6 lg:px-32 mt-5">
+  {% if estimasi %}
+    <details>
+      <summary class="cursor-pointer">Melihat Detail Input</summary>
+      <table aria-describedby="detail input">
+        <thead>
+          <tr>
+            <th class="px-4">Tahun Produksi</th>
+            <th class="px-4">Jarak Tempuh</th>
+            <th class="px-4">Pajak</th>
+            <th class="px-4">MPG</th>
+            <th class="px-4">Ukuran Mesin</th>
+            <th class="px-4">Automatic</th>
+            <th class="px-4">Manual</th>
+            <th class="px-4">Semi-Auto</th>
+            <th class="px-4">Diesel</th>
+            <th class="px-4">Hybrid</th>
+            <th class="px-4">Petrol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for item in user_input %}
+              <td class="text-center">{{ item }}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </details>
+  {% endif %}
+</section>
+
 <main class="mt-5 px-6 lg:px-32">
   <form method="post">
     {% csrf_token %}
