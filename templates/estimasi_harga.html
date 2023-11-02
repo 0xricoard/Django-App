@@ -17,6 +17,38 @@
   </div>
 </section>
 
+<section class="px-6 lg:px-32 mt-5">
+  {% if estimasi %}
+    <details>
+      <summary class="cursor-pointer">Melihat Detail Input</summary>
+      <table aria-describedby="detail input">
+        <thead>
+          <tr>
+            <th class="px-4">Tahun Produksi</th>
+            <th class="px-4">Jarak Tempuh</th>
+            <th class="px-4">Pajak</th>
+            <th class="px-4">MPG</th>
+            <th class="px-4">Ukuran Mesin</th>
+            <th class="px-4">Automatic</th>
+            <th class="px-4">Manual</th>
+            <th class="px-4">Semi-Auto</th>
+            <th class="px-4">Diesel</th>
+            <th class="px-4">Hybrid</th>
+            <th class="px-4">Petrol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for item in user_input %}
+              <td class="text-center">{{ item }}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </details>
+  {% endif %}
+</section>
+
 <main class="mt-5 px-6 lg:px-32">
   <form method="post">
     {% csrf_token %}
@@ -28,37 +60,37 @@
       </div>
 
       <div class="w-full">
-        <label for="tax">Pajak (rupiah)</label>
-        {% render_field form.tax class+="input-style" placeholder="ex: 1000000" id="tax" %}
+        <label for="mileage">Jarak Tempuh (mil)</label>
+        {% render_field form.mileage class+="input-style" placeholder="00000" id="mileage" %}
       </div>
     </div>
-
+    
     <div class="w-full">
-      <label for="mileage">Jarak Tempuh (mil)</label>
-      {% render_field form.mileage class+="input-style" value="0" id="mileage" %}
+      <label for="tax">Pajak (rupiah)</label>
+      {% render_field form.tax class+="input-style" placeholder="1000000" id="tax" %}
     </div>
 
 
     <div class="flex w-full justify-center items-center gap-8">
       <div class="w-full">
         <label for="engine">Ukuran Mesin</label>
-        {% render_field form.engineSize class+="input-style" value="0" id="engine" %}
+        {% render_field form.engineSize class+="input-style" id="engine" %}
       </div>
 
       <div class="w-full">
         <label for="mpg">MPG</label>
-        {% render_field form.mpg class+="input-style" value="0" id="mpg" %}
+        {% render_field form.mpg class+="input-style" placeholder="00.0" id="mpg" %}
       </div>
     </div>
 
     <div>
       <label for="trans">Transmisi</label>
-      {% render_field form.transmission class+="input-style" value="0" id="trans" %}
+      {% render_field form.transmission class+="input-style" id="trans" %}
     </div>
 
     <div>
       <label for="type">Jenis Bahan Bakar</label>
-      {% render_field form.fuelType class+="input-style" value="0" id="type" %}
+      {% render_field form.fuelType class+="input-style" id="type" %}
     </div>
 
     <a href="#result" class="cursor-pointer">
